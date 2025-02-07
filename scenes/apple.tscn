@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://o8sh42rtk7dk"]
+
+[ext_resource type="PackedScene" uid="uid://dkhnftgdtkfmk" path="res://scenes/Ingredients.tscn" id="1_2521m"]
+[ext_resource type="Texture2D" uid="uid://oentvjdheu4v" path="res://assets/images.jpeg" id="2_w3t27"]
+
+[node name="Apple" instance=ExtResource("1_2521m")]
+ingredient_name = "apple"
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_w3t27")
