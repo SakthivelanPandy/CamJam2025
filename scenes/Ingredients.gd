@@ -8,12 +8,13 @@ signal collected(ingredient_name)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("ingredients")
 	connect("body_entered", Callable(self, "_on_body_encounter"))
 
 
 func _on_body_encounter(body):
 	if body.is_in_group("player"):
-		emit_signal("collected", ingredient_name)  # Notify game manager
+		collected.emit(ingredient_name)  # Notify game manager
 		queue_free()  # Remove ingredient from scene
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

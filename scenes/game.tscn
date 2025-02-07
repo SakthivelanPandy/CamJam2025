@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://cu7i07kk6r2b4"]
+[gd_scene load_steps=7 format=4 uid="uid://cu7i07kk6r2b4"]
 
 [ext_resource type="PackedScene" uid="uid://cekpla2ei26xj" path="res://scenes/player.tscn" id="1_m6tli"]
+[ext_resource type="PackedScene" uid="uid://c01jirk7b6q5d" path="res://scenes/game_manager.tscn" id="1_yl8nb"]
 [ext_resource type="Texture2D" uid="uid://g7dbrm1tfsan" path="res://assets/rectangles.png" id="2_3ym20"]
 [ext_resource type="PackedScene" path="res://scenes/apple.tscn" id="3_evuhy"]
 
@@ -4523,3 +4524,5 @@ position = Vector2(-423, -43)
 [node name="Player" parent="." instance=ExtResource("1_m6tli")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="gameManager" parent="." instance=ExtResource("1_yl8nb")]
