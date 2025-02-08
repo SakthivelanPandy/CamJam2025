@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvdeve0ovjmxo"]
+
+[ext_resource type="Script" path="res://scenes/dialogue.gd" id="1_fb1oy"]
+[ext_resource type="Texture2D" uid="uid://5gkui5v5eeqb" path="res://assets/table.jpg" id="2_a0fpi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0snt"]
+texture = ExtResource("2_a0fpi")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 20.0
+offset_right = 87.0
+offset_bottom = 60.0
+script = ExtResource("1_fb1oy")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 0
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_s0snt")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="yesButton" type="Button" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="noButton" type="Button" parent="Panel/MarginContainer"]
+layout_mode = 2

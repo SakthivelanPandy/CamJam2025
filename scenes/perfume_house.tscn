@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c72q01ejqjxwr"]
+[gd_scene load_steps=11 format=3 uid="uid://c72q01ejqjxwr"]
 
 [ext_resource type="Texture2D" uid="uid://b3qyd7k481r46" path="res://assets/perfumeHouse.jpeg" id="1_oo57e"]
 [ext_resource type="PackedScene" uid="uid://cekpla2ei26xj" path="res://scenes/player.tscn" id="2_7102m"]
@@ -11,14 +11,29 @@ size = Vector2(156, 116)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6sc8"]
 size = Vector2(417, 973)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kebww"]
+size = Vector2(85, 1573.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_65lhq"]
+radius = 400.08
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2d0b"]
+size = Vector2(1603, 137)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b55h2"]
+radius = 72.4431
+
 [node name="PerfumeHouse" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_oo57e")
 
 [node name="Player" parent="." instance=ExtResource("2_7102m")]
+position = Vector2(-352, -112)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-8, 0)
+zoom = Vector2(0.8, 0.8)
 limit_left = -770
 limit_top = -770
 limit_right = 770
@@ -32,11 +47,48 @@ position = Vector2(-407, -590)
 shape = SubResource("RectangleShape2D_ysl3h")
 
 [node name="enterTable" type="Area2D" parent="."]
+position = Vector2(96, -32)
 script = ExtResource("4_pmdfk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enterTable"]
 position = Vector2(576.5, -150.5)
 shape = SubResource("RectangleShape2D_h6sc8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-797.5, 2.5)
+shape = SubResource("RectangleShape2D_kebww")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(768, 616)
+shape = SubResource("CircleShape2D_65lhq")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-696, 856)
+shape = SubResource("CircleShape2D_65lhq")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(14.5, -731.5)
+shape = SubResource("RectangleShape2D_v2d0b")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(8, 816)
+shape = SubResource("RectangleShape2D_v2d0b")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-560, -80)
+shape = SubResource("CircleShape2D_b55h2")
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
 [connection signal="body_entered" from="enterTable" to="enterTable" method="_on_body_entered"]

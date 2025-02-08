@@ -4,7 +4,7 @@ signal update_task
 
 var inventory = {}
 var to_collect = {}
-var current_task : int
+var current_task = 1
 var collected_ingredients = []
 
 func check_ingredients_ready():
@@ -14,13 +14,68 @@ func check_ingredients_ready():
 			ready = false
 	return ready
 	
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func next_task():
+	# display cutscene
+	cutscene(current_task)
+	# take away items used from inventory
+	remove_used_items()
+	# give new task
+	current_task += 1
+	print(tasks[current_task -1])
+	assign_task()
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func cutscene(num):
+	get_tree().change_scene_to_file("res://scenes/cs_" + str(current_task - 1) + ".tscn")
 	pass
 	
-# Assign a new task
+func remove_used_items():
+	for ingredient in to_collect:
+		inventory[ingredient] -= to_collect[ingredient]
+		
+func assign_task() -> void:
+	var ingredients = tasks[current_task-1]
+	to_collect = {}
+	for i in ingredients:
+		if i in to_collect:
+			to_collect[i] = to_collect[i] + 1
+		else:
+			to_collect[i] = 1
+	update_task.emit()
+	print(to_collect) 
+	
+	
+var tasks = [
+		["apple","apple"],
+		["apple","apple","apple"]
+	]
+
+func _ready() -> void:
+	assign_task()
+
+
+var all_ingredient = ["Apple", "Banana", "Orange"]
+
+var l = all_ingredient.size()
+const NUM_DEALS = 3
+
+func pop_deal():
+	var num_pay = int(randfn(6, 2))
+	var num_get = int(randfn(4, 1))
+	var index_1 = randi() % l
+	var index_2 = randi() % l
+	var pay_good = all_ingredient[index_1]
+	var get_good = all_ingredient[index_2]
+	var deal = {
+		"offer_text": str(num_pay)+" "+pay_good+" for "+str(num_get)+" "+get_good, 
+		"cost": {pay_good : num_pay},
+		"reward": {get_good : num_get}
+	}
+	return deal
+
+func generate_deals():
+	var deals = []
+	for i in range(NUM_DEALS):
+		deals.append(pop_deal())
+	return deals

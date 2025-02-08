@@ -16,7 +16,7 @@ func _ready() -> void:
 			else:
 				ingredient.collected.connect(_on_ingredient_collected)
 				
-	assign_task(["apple","apple"],1)
+	assign_task(["apple","apple"])
 
 func _on_ingredient_collected(ingredient_name):
 	if ingredient_name in inventory:
@@ -26,13 +26,13 @@ func _on_ingredient_collected(ingredient_name):
 	inventory_update.emit()
 	print(inventory)
 
-func assign_task(ingredients:Array[String], number:int) -> void:
-	for i in ingredients:
-		if i in to_collect:
-			to_collect[i] = to_collect[i] + 1
-		else:
-			to_collect[i] = 1
-	Global.current_task = number
+func assign_task(ingredients:Array[String]) -> void:
+	#for i in ingredients:
+		#if i in to_collect:
+			#to_collect[i] = to_collect[i] + 1
+		#else:
+			#to_collect[i] = 1
+	Global.assign_task()
 	update_task.emit()
 	print(to_collect)
 	

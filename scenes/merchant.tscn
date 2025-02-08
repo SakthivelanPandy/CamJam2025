@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://cooyd5aavaxev"]
+
+[ext_resource type="Script" path="res://scripts/merchant.gd" id="1_nu47j"]
+[ext_resource type="Texture2D" uid="uid://oentvjdheu4v" path="res://assets/images.jpeg" id="3_0c5df"]
+[ext_resource type="Script" path="res://scripts/panel.gd" id="4_ssgdq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yx747"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0c5df")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0c5df")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kw36"]
+size = Vector2(162.751, 147.703)
+
+[node name="merchant" type="Node2D"]
+position = Vector2(1029, -36)
+scale = Vector2(17.9354, 10.9544)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_yx747")
+autoplay = "default"
+frame_progress = 0.770831
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_nu47j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6.49553, 12.7802)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2kw36")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.63339, 1.74856)
+script = ExtResource("4_ssgdq")
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.119904, 0.262684)
+
+[node name="Button" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 2.93562
+offset_top = 22.2926
+offset_right = 36.9356
+offset_bottom = 53.2926
+scale = Vector2(0.191794, 0.257477)
+text = "yes"
+
+[node name="Button2" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 12.391
+offset_top = 22.6058
+offset_right = 40.391
+offset_bottom = 53.6058
+scale = Vector2(0.220988, 0.212844)
+text = "no
+"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
