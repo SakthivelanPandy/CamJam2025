@@ -30,7 +30,7 @@ func _on_body_encounter(body):
 		target_position = body.position
 		tween_animation.animate_ingredient(self,target_position,1)
 		
-		Global.collected_ingredients.append(ingredient_id)
+		#Global.collected_ingredients.append(ingredient_id)
 		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

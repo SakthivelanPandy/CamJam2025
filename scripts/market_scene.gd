@@ -7,7 +7,7 @@ extends Control
 @onready var trade_button = $Panel/Button
 @onready var instructions_label = $Panel/InstructionsLabel
 
-
+signal offerAccept(offer)
 
 var offers = []
 
@@ -29,21 +29,19 @@ func generate_random_offers():
 	Button3.text = offer3["offer_text"]
 		
 func _on_offer_accepted(offer):
-	if can_afford_offer(offer):
-		selected_offer = offer
-		instructions_label.text = "Offer accepted! Press 'Trade' to confirm."
-		trade_button.visible = true
-	else:
-		instructions_label.text = "You don't have enough ingredients for this offer."
+	emit_signal("offerAccept",offer)
 
 func can_afford_offer(offer):
-	var player_ingredients = Global.collected_ingredients  # Replace with actual logic for player ingredients
+	var player_ingredients = Global.inventory  
 	for ingredient in offer["cost"].keys():
+		if ingredient not in player_ingredients.keys():
+			return false
 		if player_ingredients[ingredient] < offer["cost"][ingredient]:
 			return false
 	return true
 
 func _on_trade_button_pressed():
+	print("trade button")
 	if selected_offer:
 		process_trade(selected_offer)
 		instructions_label.text = "Trade completed!"
@@ -53,17 +51,26 @@ func _on_trade_button_pressed():
 
 func process_trade(offer):
 	for ingredient in offer["cost"].keys():
-		Global.decrease_ingredient(ingredient, offer["cost"][ingredient])
+		#Global.decrease_ingredient(ingredient, offer["cost"][ingredient])
+		Global.inventory[ingredient] -= offer["cost"][ingredient]
+		print(ingredient,offer["cost"][ingredient])
 
 	for ingredient in offer["reward"].keys():
-		Global.add_ingredient(ingredient, offer["reward"][ingredient])
-
+		#Global.add_ingredient(ingredient, offer["reward"][ingredient])
+		if ingredient in Global.inventory:
+			Global.inventory[ingredient] += offer["reward"][ingredient]
+		else:
+			Global.inventory[ingredient] = offer["reward"][ingredient]
+		print(ingredient,offer["reward"][ingredient])
 
 func _on_button_1_pressed() -> void:
+	selected_offer = offer1
 	_on_offer_accepted(offer1)
 func _on_button_2_pressed() -> void:
+	selected_offer = offer2
 	_on_offer_accepted(offer2)
 func _on_button_3_pressed() -> void:
+	selected_offer = offer3
 	_on_offer_accepted(offer3)
 
 

@@ -25,6 +25,7 @@ func _ready():
 
 
 func _on_button_pressed() -> void:
+	print("button pressed")
 	if Global.check_ingredients_ready():
 		print("Creating Perfume...")
 		Global.next_task()

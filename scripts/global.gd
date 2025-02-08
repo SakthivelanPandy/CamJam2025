@@ -7,6 +7,7 @@ var to_collect = {}
 var current_task = 1
 var collected_ingredients = []
 
+
 func check_ingredients_ready():
 	var ready = true
 	for ingredient in to_collect:
@@ -27,7 +28,7 @@ func next_task():
 
 
 func cutscene(num):
-	get_tree().change_scene_to_file("res://scenes/cs_" + str(current_task - 1) + ".tscn")
+	get_tree().change_scene_to_file("res://scenes/cs_" + str(current_task + 1) + ".tscn")
 	pass
 	
 func remove_used_items():
@@ -55,7 +56,7 @@ func _ready() -> void:
 	assign_task()
 
 
-var all_ingredient = ["Apple", "Banana", "Orange"]
+var all_ingredient = ["apple", "banana", "orange"]
 
 var l = all_ingredient.size()
 const NUM_DEALS = 3
