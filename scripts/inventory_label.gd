@@ -15,7 +15,7 @@ func _update_inventory():
 	print("inventory has been updated")
 	text = "Inventory: \n"
 	for ingredient in Global.inventory:
-		text += ingredient + "     " + str(Global.inventory[ingredient]) + "\n"
+		text += ingredient + "     x" + str(Global.inventory[ingredient]) + "\n"
 	$".".text = text
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
