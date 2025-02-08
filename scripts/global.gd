@@ -27,8 +27,10 @@ func next_task():
 
 
 func cutscene(num):
-	get_tree().change_scene_to_file("res://scenes/cs_" + str(current_task - 1) + ".tscn")
-	pass
+	print("playing cutscene")
+	print("res://scenes/cs_" + str(current_task + 1) + ".tscn")
+	get_tree().change_scene_to_file("res://scenes/cs_" + str(current_task + 1) + ".tscn")
+	print("played cutscene")
 	
 func remove_used_items():
 	for ingredient in to_collect:
@@ -48,14 +50,16 @@ func assign_task() -> void:
 	
 var tasks = [
 		["apple","apple"],
-		["apple","apple","apple"]
+		["apple","apple","apple"],
+		["basil"]
+		
 	]
 
 func _ready() -> void:
 	assign_task()
 
 
-var all_ingredient = ["Apple", "Banana", "Orange"]
+var all_ingredient = ["apple", "banana", "orange"]
 
 var l = all_ingredient.size()
 const NUM_DEALS = 3

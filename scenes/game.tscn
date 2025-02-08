@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cu7i07kk6r2b4"]
+[gd_scene load_steps=18 format=3 uid="uid://cu7i07kk6r2b4"]
 
 [ext_resource type="Texture2D" uid="uid://d3qn8yxwl7yiv" path="res://assets/map.jpg" id="1_kodbk"]
 [ext_resource type="PackedScene" uid="uid://cekpla2ei26xj" path="res://scenes/player.tscn" id="1_m6tli"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://7pxcubd0ipw1" path="res://scenes/inventory_label.tscn" id="4_0l600"]
 [ext_resource type="PackedScene" uid="uid://cooyd5aavaxev" path="res://scenes/merchant.tscn" id="4_dgnbm"]
 [ext_resource type="PackedScene" uid="uid://ny55m23gad8h" path="res://scenes/house.tscn" id="5_5q3dm"]
+[ext_resource type="PackedScene" uid="uid://ddr8pjaspmf28" path="res://scenes/Enemy.tscn" id="5_u54jj"]
 [ext_resource type="PackedScene" uid="uid://ddlqdeajc6poe" path="res://scenes/task_label.tscn" id="6_5m5co"]
 [ext_resource type="AudioStream" uid="uid://vjeq305x7s2f" path="res://assets/Music/background.mp3" id="8_sxxbm"]
 
@@ -24,6 +25,9 @@ size = Vector2(265, 2717.08)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smdp8"]
 size = Vector2(1663.5, 177)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lbbu4"]
+font_size = 72
 
 [node name="Game" type="Node2D"]
 position = Vector2(18, 0)
@@ -96,20 +100,30 @@ shape = SubResource("RectangleShape2D_smdp8")
 [node name="Apple" parent="." instance=ExtResource("3_evuhy")]
 position = Vector2(-607, -230)
 scale = Vector2(0.2, 0.2)
+refresh_time = 5.0
 
 [node name="Apple2" parent="." instance=ExtResource("3_evuhy")]
 position = Vector2(292, -460)
 scale = Vector2(0.3, 0.3)
 ingredient_id = "apple2"
+refresh_time = 5.0
 
 [node name="Orange" parent="." instance=ExtResource("3_wkiu2")]
 position = Vector2(-569, 193)
+move_area = Rect2(-800, -700, 1300, 1300)
+move_speed = 0.2
+ingredient_name = "orange"
+ingredient_id = "orange1"
+refresh_time = 2.0
 metadata/ingredient_name = "orange"
 
 [node name="merchant" parent="." instance=ExtResource("4_dgnbm")]
 position = Vector2(-194, 487)
 scale = Vector2(5, 3.055)
-script = null
+
+[node name="Enemy" parent="." instance=ExtResource("5_u54jj")]
+visible = false
+position = Vector2(-556, 421)
 
 [node name="Player" parent="." instance=ExtResource("1_m6tli")]
 position = Vector2(367, 164)
@@ -142,6 +156,27 @@ offset_left = 40.0
 offset_top = -1.0
 offset_right = 115.0
 offset_bottom = 22.0
+
+[node name="DeathScreen" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/DeathScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Died"
+label_settings = SubResource("LabelSettings_lbbu4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(465, -433)

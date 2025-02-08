@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddr8pjaspmf28"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_boko3"]
+[ext_resource type="Texture2D" uid="uid://ideanitudqov" path="res://assets/enemy.jpeg" id="2_xwpiu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_olehu"]
+radius = 93.62
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_boko3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_olehu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -5)
+texture = ExtResource("2_xwpiu")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

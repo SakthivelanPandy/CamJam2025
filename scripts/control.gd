@@ -14,7 +14,8 @@ func update_ingredient_ui():
 			print("You need " + str(Global.to_collect[ingredient] - Global.inventory.get(ingredient,0)) + " more " + ingredient)
 	if Global.check_ingredients_ready():
 		text = "You have everything you need!"
-		action_button.modulate = Color(1, 0, 0)  
+		action_button.modulate = Color(1, 0, 0)
+		print(Global.to_collect)  
 	else:
 		action_button.modulate = Color(0.5, 0.5, 0.5)  
 	$"../Info".text = text
@@ -22,9 +23,11 @@ func update_ingredient_ui():
 
 func _ready():
 	update_ingredient_ui()
+	
 
 
 func _on_button_pressed() -> void:
+	print("Button pressed")
 	if Global.check_ingredients_ready():
 		print("Creating Perfume...")
 		Global.next_task()
