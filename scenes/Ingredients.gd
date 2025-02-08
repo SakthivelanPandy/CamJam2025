@@ -5,7 +5,8 @@ signal collected(ingredient_name)
 
 # name of the ingredient
 @export var ingredient_name: String = "Unknown Ingredient"
-@export var ingredient_id: String = "ingredient1" 
+@export var ingredient_id: String = "ingredient1"
+var already_collected = false
 
 var target_position: Vector2
 @onready var tween_animation = $Tween
@@ -18,7 +19,8 @@ func _ready():
 
 
 func _on_body_encounter(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and not already_collected:
+		already_collected = true
 		collected.emit(ingredient_name)  # Notify game manager
 		
 		var audioPlayer = $Music

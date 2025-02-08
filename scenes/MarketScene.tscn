@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://dghw0f330lu83"]
+
+[ext_resource type="Script" path="res://scripts/market_scene.gd" id="1_rht5p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_72pko"]
+line_spacing = 8.0
+font_size = 100
+
+[node name="MarketScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rht5p")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.8, 16.28)
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.8, 16.2)
+
+[node name="InstructionsLabel" type="Label" parent="Panel"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.21528
+offset_top = -0.859951
+offset_right = 710.215
+offset_bottom = 386.14
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.00904539, 0.0148835)
+text = "
+choose an offer"
+label_settings = SubResource("LabelSettings_72pko")
+text_direction = 1
+
+[node name="Button1" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 4.96528
+offset_top = 24.7543
+offset_right = 383.965
+offset_bottom = 257.754
+scale = Vector2(0.0150912, 0.0322352)
+
+[node name="Button2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 15.5903
+offset_top = 26.5971
+offset_right = 87.5903
+offset_bottom = 57.5971
+scale = Vector2(0.0973894, 0.221718)
+text = "1111111"
+
+[node name="Button3" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 25.9028
+offset_top = 26.5356
+offset_right = 61.9028
+offset_bottom = 57.5356
+scale = Vector2(0.143115, 0.204091)
+text = "111"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 23.7847
+offset_top = 1.90418
+offset_right = 92.7847
+offset_bottom = 32.9042
+scale = Vector2(0.169962, 0.472077)
+text = "confirm"
+
+[connection signal="pressed" from="Panel/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Panel/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Panel/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_trade_button_pressed"]

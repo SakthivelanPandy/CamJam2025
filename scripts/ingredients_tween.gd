@@ -20,3 +20,8 @@ func animate_ingredient(target_node: Node2D, target_position: Vector2, animation
 	await get_tree().create_timer(animation_duration).timeout
 	target_node.queue_free()
 	
+func random_move(target_node: Node2D, target_position: Vector2, speed:float):
+	var tween = create_tween()
+	tween.tween_property(target_node, "position", target_position, speed)
+	await tween.finished
+	
