@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c72q01ejqjxwr"]
+
+[ext_resource type="Texture2D" uid="uid://b3qyd7k481r46" path="res://assets/perfumeHouse.jpeg" id="1_oo57e"]
+[ext_resource type="PackedScene" uid="uid://cekpla2ei26xj" path="res://scenes/player.tscn" id="2_7102m"]
+[ext_resource type="Script" path="res://scripts/exit.gd" id="3_4v2qi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysl3h"]
+size = Vector2(156, 116)
+
+[node name="PerfumeHouse" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oo57e")
+
+[node name="Player" parent="." instance=ExtResource("2_7102m")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Exit" type="Area2D" parent="."]
+script = ExtResource("3_4v2qi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(-407, -590)
+shape = SubResource("RectangleShape2D_ysl3h")
+
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

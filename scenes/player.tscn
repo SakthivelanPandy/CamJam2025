@@ -10,6 +10,7 @@ const SPEED = 300.0
 
 func _ready() -> void:
 	add_to_group(\"player\")
+	print(get_tree().current_scene.name)
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
