@@ -7,17 +7,25 @@ signal collected(ingredient_name)
 @export var ingredient_name: String = "Unknown Ingredient"
 @export var ingredient_id: String = "ingredient1" 
 
+var target_position: Vector2
+@onready var tween_animation = $Tween
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("ingredients")
 	connect("body_entered", Callable(self, "_on_body_encounter"))
+	var tween = create_tween()
 
 
 func _on_body_encounter(body):
 	if body.is_in_group("player"):
 		collected.emit(ingredient_name)  # Notify game manager
+		
+		
+		target_position = body.position
+		tween_animation.animate_ingredient(self,target_position,1)
+		
 		Global.collected_ingredients.append(ingredient_id)
-		queue_free()  # Remove ingredient from scene
 		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

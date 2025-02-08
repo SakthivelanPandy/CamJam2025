@@ -15,6 +15,10 @@ texture = ExtResource("1_oo57e")
 [node name="Player" parent="." instance=ExtResource("2_7102m")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -770
+limit_top = -770
+limit_right = 770
+limit_bottom = 770
 
 [node name="Exit" type="Area2D" parent="."]
 script = ExtResource("3_4v2qi")

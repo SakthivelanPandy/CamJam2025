@@ -25,7 +25,14 @@ func _process(delta):
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * SPEED
-		position += velocity * delta
+		
+	if get_tree().current_scene.name == \"PerfumeHouse\":
+		if (position + velocity * delta).x > 450 or (position + velocity * delta).x < -450:
+			velocity *= -0.01
+		if (position + velocity * delta).y > 500 or (position + velocity * delta).y < -500:
+			velocity *= -0.01
+	
+	position += velocity * delta
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1tq0w"]
