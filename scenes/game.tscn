@@ -4524,6 +4524,9 @@ tile_set = SubResource("TileSet_wk5sn")
 [node name="Apple" parent="." instance=ExtResource("3_evuhy")]
 position = Vector2(-854, 138)
 
+[node name="Apple2" parent="." instance=ExtResource("3_evuhy")]
+ingredient_id = "apple2"
+
 [node name="Player" parent="." instance=ExtResource("1_m6tli")]
 position = Vector2(-3, -3)
 

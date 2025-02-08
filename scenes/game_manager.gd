@@ -16,7 +16,7 @@ func _ready() -> void:
 			else:
 				ingredient.collected.connect(_on_ingredient_collected)
 				
-	assign_task(["Apple","Apple"],1)
+	assign_task(["apple","apple"],1)
 
 func _on_ingredient_collected(ingredient_name):
 	if ingredient_name in inventory:
