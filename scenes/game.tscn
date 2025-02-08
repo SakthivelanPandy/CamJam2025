@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://cu7i07kk6r2b4"]
+[gd_scene load_steps=9 format=4 uid="uid://cu7i07kk6r2b4"]
 
 [ext_resource type="PackedScene" uid="uid://cekpla2ei26xj" path="res://scenes/player.tscn" id="1_m6tli"]
 [ext_resource type="PackedScene" uid="uid://c01jirk7b6q5d" path="res://scenes/game_manager.tscn" id="1_yl8nb"]
 [ext_resource type="Texture2D" uid="uid://g7dbrm1tfsan" path="res://assets/rectangles.png" id="2_3ym20"]
-[ext_resource type="PackedScene" path="res://scenes/apple.tscn" id="3_evuhy"]
+[ext_resource type="PackedScene" uid="uid://wknarr7c1ph7" path="res://scenes/apple.tscn" id="3_evuhy"]
+[ext_resource type="PackedScene" uid="uid://7pxcubd0ipw1" path="res://scenes/inventory_label.tscn" id="4_0l600"]
+[ext_resource type="PackedScene" uid="uid://ny55m23gad8h" path="res://scenes/house.tscn" id="5_5q3dm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3d5ie"]
 texture = ExtResource("2_3ym20")
@@ -4521,8 +4523,21 @@ tile_set = SubResource("TileSet_wk5sn")
 [node name="Apple" parent="." instance=ExtResource("3_evuhy")]
 position = Vector2(-423, -43)
 
+[node name="Apple2" parent="." instance=ExtResource("3_evuhy")]
+position = Vector2(-312, 538)
+ingredient_id = "apple2"
+
 [node name="Player" parent="." instance=ExtResource("1_m6tli")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="gameManager" parent="." instance=ExtResource("1_yl8nb")]
+
+[node name="Area2D" parent="." instance=ExtResource("5_5q3dm")]
+position = Vector2(582, 721)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryLabel" parent="CanvasLayer" instance=ExtResource("4_0l600")]
+offset_left = 40.0
+offset_right = 115.0

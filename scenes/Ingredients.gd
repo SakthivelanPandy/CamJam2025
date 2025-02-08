@@ -4,7 +4,8 @@ extends Area2D
 signal collected(ingredient_name)
 
 # name of the ingredient
-@export var ingredient_name: String = "Unknown Ingredient" 
+@export var ingredient_name: String = "Unknown Ingredient"
+@export var ingredient_id: String = "ingredient1" 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +16,9 @@ func _ready():
 func _on_body_encounter(body):
 	if body.is_in_group("player"):
 		collected.emit(ingredient_name)  # Notify game manager
+		Global.collected_ingredients.append(ingredient_id)
 		queue_free()  # Remove ingredient from scene
+		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
