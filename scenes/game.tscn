@@ -109,7 +109,6 @@ metadata/ingredient_name = "orange"
 [node name="merchant" parent="." instance=ExtResource("4_dgnbm")]
 position = Vector2(-194, 487)
 scale = Vector2(5, 3.055)
-script = null
 
 [node name="Player" parent="." instance=ExtResource("1_m6tli")]
 position = Vector2(367, 164)

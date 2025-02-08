@@ -65,3 +65,8 @@ func _on_button_2_pressed() -> void:
 	_on_offer_accepted(offer2)
 func _on_button_3_pressed() -> void:
 	_on_offer_accepted(offer3)
+
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
