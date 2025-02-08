@@ -21,6 +21,9 @@ func _on_body_encounter(body):
 	if body.is_in_group("player"):
 		collected.emit(ingredient_name)  # Notify game manager
 		
+		var audioPlayer = $Music
+		if audioPlayer and audioPlayer.stream:
+			audioPlayer.play()
 		
 		target_position = body.position
 		tween_animation.animate_ingredient(self,target_position,1)

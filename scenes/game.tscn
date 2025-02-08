@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cu7i07kk6r2b4"]
+[gd_scene load_steps=11 format=4 uid="uid://cu7i07kk6r2b4"]
 
 [ext_resource type="PackedScene" uid="uid://cekpla2ei26xj" path="res://scenes/player.tscn" id="1_m6tli"]
 [ext_resource type="PackedScene" uid="uid://c01jirk7b6q5d" path="res://scenes/game_manager.tscn" id="1_yl8nb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7pxcubd0ipw1" path="res://scenes/inventory_label.tscn" id="4_0l600"]
 [ext_resource type="PackedScene" uid="uid://ny55m23gad8h" path="res://scenes/house.tscn" id="5_5q3dm"]
 [ext_resource type="PackedScene" uid="uid://ddlqdeajc6poe" path="res://scenes/task_label.tscn" id="6_5m5co"]
+[ext_resource type="AudioStream" uid="uid://vjeq305x7s2f" path="res://assets/Music/background.mp3" id="8_sxxbm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3d5ie"]
 texture = ExtResource("2_3ym20")
@@ -4551,5 +4552,10 @@ offset_left = 40.0
 offset_top = -1.0
 offset_right = 115.0
 offset_bottom = 22.0
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_sxxbm")
+autoplay = true
+bus = &"Background Music"
 
 [connection signal="update_task" from="gameManager" to="CanvasLayer/TaskLabel" method="_on_game_manager_update_task"]

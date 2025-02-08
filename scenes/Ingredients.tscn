@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5wf2v7uasar5"]
+[gd_scene load_steps=5 format=3 uid="uid://c5wf2v7uasar5"]
 
 [ext_resource type="Script" path="res://scenes/Ingredients.gd" id="1_m4xaw"]
 [ext_resource type="Script" path="res://scripts/ingredients_tween.gd" id="2_xern3"]
+[ext_resource type="AudioStream" uid="uid://d2ypj782v3r41" path="res://assets/Music/collected.mp3" id="3_hqtlu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k20o2"]
 
@@ -15,3 +16,7 @@ shape = SubResource("CircleShape2D_k20o2")
 script = ExtResource("2_xern3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hqtlu")
+bus = &"SFX"
