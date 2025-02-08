@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kw36"]
-size = Vector2(162.751, 147.703)
+size = Vector2(68.7467, 69.1959)
 
 [node name="merchant" type="Node2D"]
 position = Vector2(1029, -36)
@@ -35,7 +35,7 @@ frame_progress = 0.770831
 script = ExtResource("1_nu47j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(6.49553, 12.7802)
+position = Vector2(-0.139389, -0.639013)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2kw36")
 

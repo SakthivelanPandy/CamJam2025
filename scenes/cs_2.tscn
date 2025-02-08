@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c53bdlrcbg7pe"]
+
+[ext_resource type="VideoStream" path="res://assets/birdsong.ogv" id="1_aga8r"]
+[ext_resource type="Script" path="res://scripts/video_stream_player.gd" id="2_3qcih"]
+
+[node name="CS2" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -992.0
+offset_top = -504.0
+offset_right = 928.0
+offset_bottom = 584.0
+stream = ExtResource("1_aga8r")
+autoplay = true
+script = ExtResource("2_3qcih")
+
+[node name="Camera2D" type="Camera2D" parent="VideoStreamPlayer"]
+position = Vector2(992, 528)
+zoom = Vector2(0.8, 0.6)
+
+[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]

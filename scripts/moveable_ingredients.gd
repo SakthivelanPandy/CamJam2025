@@ -22,6 +22,13 @@ func move_to_random_position():
 	)
 	tween_animation.random_move(self, target_pos, move_speed)
 	
+func _on_timer_timeout():
+	print('time out')
+	sprite.position = initial_position
+	sprite.scale = initial_scale
+	already_collected = false
+	random_move()
+	
 func _process(delta: float) -> void:
 	#move_to_random_position()
 	pass

@@ -1,10 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5wf2v7uasar5"]
+[gd_scene load_steps=7 format=3 uid="uid://c5wf2v7uasar5"]
 
 [ext_resource type="Script" path="res://scenes/Ingredients.gd" id="1_m4xaw"]
 [ext_resource type="Script" path="res://scripts/ingredients_tween.gd" id="2_xern3"]
 [ext_resource type="AudioStream" uid="uid://d2ypj782v3r41" path="res://assets/Music/collected.mp3" id="3_hqtlu"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="4_i7chs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k20o2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ivxir"]
+font_size = 40
 
 [node name="Ingredients" type="Area2D"]
 script = ExtResource("1_m4xaw")
@@ -20,3 +24,15 @@ script = ExtResource("2_xern3")
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_hqtlu")
 bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_ivxir")
+script = ExtResource("4_i7chs")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Label" method="_on_timer_timeout"]
