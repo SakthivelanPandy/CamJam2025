@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dghw0f330lu83"]
+[gd_scene load_steps=7 format=3 uid="uid://dghw0f330lu83"]
 
 [ext_resource type="Script" path="res://scripts/market_scene.gd" id="1_rht5p"]
 [ext_resource type="Texture2D" uid="uid://2g8wvio46xvc" path="res://assets/house.jpg" id="2_hlfy7"]
 [ext_resource type="Script" path="res://scripts/instructions_label.gd" id="3_qm0g0"]
+[ext_resource type="Script" path="res://scripts/time_label.gd" id="4_8prck"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_akiql"]
 texture = ExtResource("2_hlfy7")
@@ -105,6 +106,27 @@ offset_right = 55.8889
 offset_bottom = 35.7912
 scale = Vector2(0.120869, 0.172418)
 text = "quit"
+
+[node name="time_label" type="Label" parent="Panel"]
+z_index = 5
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.5556
+offset_top = 0.121221
+offset_right = 729.556
+offset_bottom = 387.121
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.00755045, 0.0126236)
+label_settings = SubResource("LabelSettings_72pko")
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_direction = 1
+script = ExtResource("4_8prck")
 
 [connection signal="offerAccept" from="." to="Panel/InstructionsLabel" method="_on_offer_accept"]
 [connection signal="pressed" from="Panel/Button1" to="." method="_on_button_1_pressed"]

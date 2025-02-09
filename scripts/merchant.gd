@@ -7,22 +7,25 @@ var rest_time = 0
 
 signal start_dialogue()
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	print("hit the merchant")
 	if not is_resting:
-		dialogue_ui.show_dialogue("Young man! Wanna trade for something?", yes, no)
+		dialogue_ui.show_dialogue("Trade basic stuff for composit ingredients", yes, no)
+	else:
+		dialogue_ui.show_dialogue("I'm tired...I really need a sleep...come later")
 	
 func _ready():
-	print("merchant ready")
-	rest_time = 5 * 60
+	print("merchant ready!")
+	rest_time = 60
 	set_process(true)
 
 func _process(delta):
 	if not is_resting:
 		rest_time -= delta
 		if rest_time <= 0:
+			print("start resting")
 			start_resting()
-			rest_time = 60
+			rest_time = 120
 
 func start_resting():
 	is_resting = true
@@ -39,11 +42,8 @@ func no():
 	
 
 
-func _on_body_entered(body: Node2D) -> void:
-	print("hit the merchant")
-	if not is_resting:
-		dialogue_ui.show_dialogue("Young man! Wanna trade for something?", yes, no)
-		
+
+
 		
 		
 		
