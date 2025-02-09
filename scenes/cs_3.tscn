@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy370j1dx077d"]
+[gd_scene load_steps=3 format=3 uid="uid://b5hjne3d4cevb"]
 
 [ext_resource type="VideoStream" path="res://assets/basil.ogv" id="1_tkt0j"]
 [ext_resource type="Script" path="res://scripts/video_stream_player.gd" id="2_edi1x"]

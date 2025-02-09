@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://5cyip1ekfbxh"]
 
 [ext_resource type="Texture2D" uid="uid://bedrvpgp5o2bq" path="res://assets/button.jpeg" id="1_ta4lw"]
-[ext_resource type="Script" path="res://scripts/control.gd" id="3_54fgp"]
+[ext_resource type="PackedScene" uid="uid://bep2qkjcq3vau" path="res://scenes/control.tscn" id="2_bcbws"]
 [ext_resource type="Texture2D" uid="uid://bwwrgh4vbelmw" path="res://assets/table.jpeg" id="3_tl23i"]
 [ext_resource type="Script" path="res://scripts/leave.gd" id="4_jndys"]
 
@@ -15,22 +15,7 @@ position = Vector2(920, 400)
 scale = Vector2(0.718698, 0.715)
 texture = ExtResource("1_ta4lw")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 136.0
-offset_top = 24.0
-offset_right = 864.0
-offset_bottom = 488.0
-script = ExtResource("3_54fgp")
-
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 48.0
-offset_right = 433.0
-offset_bottom = 281.0
-icon = ExtResource("3_tl23i")
+[node name="Control" parent="." instance=ExtResource("2_bcbws")]
 
 [node name="Info" type="Label" parent="."]
 offset_left = 760.0
@@ -56,5 +41,4 @@ offset_right = 1497.0
 offset_bottom = 729.0
 icon = ExtResource("3_tl23i")
 
-[connection signal="pressed" from="Control/Button" to="Control" method="_on_button_pressed"]
 [connection signal="pressed" from="Leave/Button" to="Leave" method="_on_button_pressed"]
