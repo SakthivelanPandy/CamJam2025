@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://wgd5nvdv10ef"]
+
+[ext_resource type="PackedScene" uid="uid://c5wf2v7uasar5" path="res://scenes/Ingredients.tscn" id="1_fg1jh"]
+[ext_resource type="Texture2D" uid="uid://b61yrjrw2r2he" path="res://assets/rose.png" id="2_m0gfs"]
+
+[node name="Rose" instance=ExtResource("1_fg1jh")]
+scale = Vector2(0.1, 0.1)
+ingredient_name = "rose"
+ingredient_id = "rose1"
+refresh_time = 40.0
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_m0gfs")

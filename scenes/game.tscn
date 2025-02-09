@@ -1,13 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://cu7i07kk6r2b4"]
+[gd_scene load_steps=20 format=3 uid="uid://cu7i07kk6r2b4"]
 
 [ext_resource type="Texture2D" uid="uid://d3qn8yxwl7yiv" path="res://assets/map.jpg" id="1_kodbk"]
 [ext_resource type="PackedScene" uid="uid://cekpla2ei26xj" path="res://scenes/player.tscn" id="1_m6tli"]
 [ext_resource type="PackedScene" uid="uid://c01jirk7b6q5d" path="res://scenes/game_manager.tscn" id="1_yl8nb"]
-[ext_resource type="PackedScene" uid="uid://wknarr7c1ph7" path="res://scenes/apple.tscn" id="3_evuhy"]
+[ext_resource type="PackedScene" uid="uid://gx7iwneaujy7" path="res://scenes/basil.tscn" id="2_0orbb"]
 [ext_resource type="PackedScene" uid="uid://e7wl1df20b7n" path="res://scenes/orange.tscn" id="3_wkiu2"]
 [ext_resource type="PackedScene" uid="uid://7pxcubd0ipw1" path="res://scenes/inventory_label.tscn" id="4_0l600"]
 [ext_resource type="PackedScene" uid="uid://cooyd5aavaxev" path="res://scenes/merchant.tscn" id="4_dgnbm"]
+[ext_resource type="PackedScene" uid="uid://chddxb8c8mxcn" path="res://scenes/birds.tscn" id="4_dgqrr"]
 [ext_resource type="PackedScene" uid="uid://ny55m23gad8h" path="res://scenes/house.tscn" id="5_5q3dm"]
+[ext_resource type="PackedScene" uid="uid://wgd5nvdv10ef" path="res://scenes/rose.tscn" id="5_ioc0e"]
 [ext_resource type="PackedScene" uid="uid://ddr8pjaspmf28" path="res://scenes/Enemy.tscn" id="5_u54jj"]
 [ext_resource type="PackedScene" uid="uid://ddlqdeajc6poe" path="res://scenes/task_label.tscn" id="6_5m5co"]
 [ext_resource type="AudioStream" uid="uid://vjeq305x7s2f" path="res://assets/Music/background.mp3" id="8_sxxbm"]
@@ -22,6 +24,7 @@ size = Vector2(331.667, 528.75)
 size = Vector2(265, 2717.08)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_08oxb"]
+radius = 893.894
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smdp8"]
 size = Vector2(1663.5, 177)
@@ -80,7 +83,7 @@ position = Vector2(82, 246)
 scale = Vector2(0.6, 0.6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
-position = Vector2(-471.667, -634.583)
+position = Vector2(-1273.33, 1360)
 shape = SubResource("CircleShape2D_08oxb")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="."]
@@ -97,25 +100,26 @@ position = Vector2(0, -1.52588e-05)
 position = Vector2(8, -881)
 shape = SubResource("RectangleShape2D_smdp8")
 
-[node name="Apple" parent="." instance=ExtResource("3_evuhy")]
-position = Vector2(-607, -230)
-scale = Vector2(0.2, 0.2)
-refresh_time = 5.0
-
-[node name="Apple2" parent="." instance=ExtResource("3_evuhy")]
-position = Vector2(292, -460)
-scale = Vector2(0.3, 0.3)
-ingredient_id = "apple2"
-refresh_time = 5.0
+[node name="Basil" parent="." instance=ExtResource("2_0orbb")]
+position = Vector2(-527, -225)
 
 [node name="Orange" parent="." instance=ExtResource("3_wkiu2")]
-position = Vector2(-569, 193)
-move_area = Rect2(-800, -700, 1300, 1300)
-move_speed = 0.2
+position = Vector2(83, -719)
+move_area = Rect2(0, -600, 600, 100)
+move_speed = 50.0
 ingredient_name = "orange"
 ingredient_id = "orange1"
-refresh_time = 2.0
+refresh_time = 20.0
 metadata/ingredient_name = "orange"
+
+[node name="Birds" parent="." instance=ExtResource("4_dgqrr")]
+move_area = Rect2(-800, -700, 1300, 1300)
+move_speed = 0.3
+ingredient_name = "bird"
+ingredient_id = "bird1"
+
+[node name="Rose" parent="." instance=ExtResource("5_ioc0e")]
+position = Vector2(-663, 456)
 
 [node name="merchant" parent="." instance=ExtResource("4_dgnbm")]
 position = Vector2(-194, 487)
@@ -131,6 +135,7 @@ scale = Vector2(0.6, 0.6)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(23.3333, -11.6667)
+zoom = Vector2(0.8, 0.8)
 limit_left = -700
 limit_top = -700
 limit_right = 700
@@ -179,8 +184,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(465, -433)
+position = Vector2(464, -434)
 stream = ExtResource("8_sxxbm")
+volume_db = 3.812
 autoplay = true
 bus = &"Background Music"
 

@@ -12,4 +12,5 @@ func _process(delta: float) -> void:
 		$".".text = new_text
 
 func _on_timer_timeout() -> void:
+	self.visible = false
 	text = $"..".ingredient_name

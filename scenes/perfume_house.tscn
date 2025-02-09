@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c72q01ejqjxwr"]
+[gd_scene load_steps=12 format=3 uid="uid://c72q01ejqjxwr"]
 
 [ext_resource type="Texture2D" uid="uid://b3qyd7k481r46" path="res://assets/perfumeHouse.jpeg" id="1_oo57e"]
 [ext_resource type="PackedScene" uid="uid://cekpla2ei26xj" path="res://scenes/player.tscn" id="2_7102m"]
 [ext_resource type="Script" path="res://scripts/exit.gd" id="3_4v2qi"]
 [ext_resource type="Script" path="res://scripts/enter_table.gd" id="4_pmdfk"]
+[ext_resource type="PackedScene" uid="uid://wgd5nvdv10ef" path="res://scenes/rose.tscn" id="5_7fj3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysl3h"]
 size = Vector2(156, 116)
@@ -69,7 +70,7 @@ shape = SubResource("CircleShape2D_65lhq")
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(-696, 856)
+position = Vector2(-704, 960)
 shape = SubResource("CircleShape2D_65lhq")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
@@ -89,6 +90,12 @@ shape = SubResource("RectangleShape2D_v2d0b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 position = Vector2(-560, -80)
 shape = SubResource("CircleShape2D_b55h2")
+
+[node name="Rose" parent="." instance=ExtResource("5_7fj3v")]
+position = Vector2(-672, 552)
+scale = Vector2(0.05, 0.05)
+ingredient_id = "rose2"
+refresh_time = 100.0
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
 [connection signal="body_entered" from="enterTable" to="enterTable" method="_on_body_entered"]

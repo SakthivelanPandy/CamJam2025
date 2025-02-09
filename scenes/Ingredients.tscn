@@ -29,6 +29,7 @@ bus = &"SFX"
 one_shot = true
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_ivxir")

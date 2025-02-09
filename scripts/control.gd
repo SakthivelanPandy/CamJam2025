@@ -31,7 +31,7 @@ func _ready():
 	$Button.disabled = false
 	$Button.mouse_filter = Control.MOUSE_FILTER_STOP
 	#$Button.emit_signal("pressed")
-	$Button.connect("mouse_entered", Callable(self, "_on_button_pressed"))
+	#$Button.connect("mouse_entered", Callable(self, "_on_button_pressed"))
 	update_ingredient_ui()
 	
 

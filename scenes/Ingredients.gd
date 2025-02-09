@@ -29,6 +29,7 @@ func _on_body_encounter(body):
 	initial_position = sprite.position
 	initial_scale = sprite.scale
 	timer.wait_time = refresh_time
+	$Label.visible = true
 	if body.is_in_group("player") and not already_collected:
 		already_collected = true
 		collected.emit(ingredient_name)  # Notify game manager

@@ -24,9 +24,8 @@ func next_task():
 	remove_used_items()
 	# give new task
 	current_task += 1
-	print(tasks[current_task -1])
+	#print(tasks[current_task -1])
 	assign_task()
-	pass
 
 
 func cutscene(num):
@@ -58,10 +57,11 @@ func assign_task() -> void:
 	
 	
 var tasks = [
-		["apple","apple"],
-		["apple","apple","apple"],
-		["basil"]
-		
+		["bird"],
+		["basil"],
+		["orange"],
+		["rose"],
+		["Thats all folks"]
 	]
 
 func _ready() -> void:
