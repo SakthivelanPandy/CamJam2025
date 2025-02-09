@@ -13,7 +13,11 @@ func _on_body_entered(body: Node2D) -> void:
 		dialogue_ui.show_dialogue("Trade basic stuff for composit ingredients", yes, no)
 	else:
 		dialogue_ui.show_dialogue("I'm tired...I really need a sleep...come later")
-	
+
+func _on_body_exited(body: Node2D) -> void:
+	print("leave the merchant")
+	dialogue_ui.close_dialogue()
+
 func _ready():
 	print("merchant ready!")
 	rest_time = 60

@@ -178,8 +178,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_llapq"]
-radius = 122.723
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70xb0"]
+radius = 101.0
+height = 424.0
 
 [node name="Player" type="CharacterBody2D"]
 script = SubResource("GDScript_fb5g7")
@@ -192,4 +193,4 @@ frame_progress = 0.57472
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_llapq")
+shape = SubResource("CapsuleShape2D_70xb0")
