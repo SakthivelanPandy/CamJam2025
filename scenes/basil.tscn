@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://gx7iwneaujy7"]
+[gd_scene load_steps=4 format=3 uid="uid://gx7iwneaujy7"]
 
 [ext_resource type="PackedScene" uid="uid://c5wf2v7uasar5" path="res://scenes/Ingredients.tscn" id="1_8hr0a"]
 [ext_resource type="Texture2D" uid="uid://br7wxwfvh6pov" path="res://assets/basil.png" id="2_bllsg"]
+[ext_resource type="AudioStream" uid="uid://bi7ie3qrhfv2b" path="res://assets/harp.mp3" id="3_ogm3g"]
 
 [node name="Basil" instance=ExtResource("1_8hr0a")]
 scale = Vector2(0.1, 0.1)
@@ -10,3 +11,6 @@ ingredient_id = "basil1"
 
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("2_bllsg")
+
+[node name="Music" parent="." index="3"]
+stream = ExtResource("3_ogm3g")

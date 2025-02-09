@@ -17,3 +17,4 @@ texture = ExtResource("3_yay5x")
 
 [node name="Music" parent="." index="3"]
 stream = ExtResource("4_4h3sy")
+volume_db = 4.901
