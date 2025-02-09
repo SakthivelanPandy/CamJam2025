@@ -8,8 +8,9 @@ func flip():
 	facing = 1-facing
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if facing == 0:
-		text = "T"
+		icon = load("res://assets/cry.png")
 	else:
-		text = "H"
+		icon = load("res://assets/laugh.png")

@@ -4,13 +4,13 @@ extends Control
 
 
 func update_ingredient_ui():
-	var text = ""
+	var text = "You need:\n"
 	#for ingredient_name in Global.ingredients.keys():
 		#var ingredient = Global.ingredients[ingredient_name]
 		#ingredient_labels[ingredient_name].text = str(ingredient["needed"] - ingredient["collected"])
 	for ingredient in Global.to_collect:
 		if Global.to_collect[ingredient] > Global.inventory.get(ingredient,0):
-			text +=  "You need " + str(Global.to_collect[ingredient] - Global.inventory.get(ingredient,0)) + " more " + ingredient 
+			text +=  str(Global.to_collect[ingredient] - Global.inventory.get(ingredient,0)) + " more " + ingredient + "\n"
 			print("You need " + str(Global.to_collect[ingredient] - Global.inventory.get(ingredient,0)) + " more " + ingredient)
 	if Global.check_ingredients_ready():
 		text = "You have everything you need!"

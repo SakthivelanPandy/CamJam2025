@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cu7i07kk6r2b4"]
+[gd_scene load_steps=23 format=3 uid="uid://cu7i07kk6r2b4"]
 
 [ext_resource type="Texture2D" uid="uid://d3qn8yxwl7yiv" path="res://assets/map.jpg" id="1_kodbk"]
 [ext_resource type="PackedScene" uid="uid://cekpla2ei26xj" path="res://scenes/player.tscn" id="1_m6tli"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://wgd5nvdv10ef" path="res://scenes/rose.tscn" id="5_ioc0e"]
 [ext_resource type="PackedScene" uid="uid://ddr8pjaspmf28" path="res://scenes/Enemy.tscn" id="5_u54jj"]
 [ext_resource type="PackedScene" uid="uid://ddlqdeajc6poe" path="res://scenes/task_label.tscn" id="6_5m5co"]
+[ext_resource type="PackedScene" uid="uid://b5t6mwfm7abpr" path="res://scenes/sage.tscn" id="6_ky4wv"]
+[ext_resource type="PackedScene" uid="uid://c2hhydepg77cf" path="res://scenes/rosemary.tscn" id="7_j24p3"]
+[ext_resource type="PackedScene" uid="uid://b5klxwd6l17b1" path="res://scenes/hyacinth.tscn" id="8_mdbw0"]
 [ext_resource type="AudioStream" uid="uid://vjeq305x7s2f" path="res://assets/Music/background.mp3" id="8_sxxbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m36pm"]
@@ -121,9 +124,24 @@ ingredient_id = "bird1"
 [node name="Rose" parent="." instance=ExtResource("5_ioc0e")]
 position = Vector2(-663, 456)
 
+[node name="Sage" parent="." instance=ExtResource("6_ky4wv")]
+position = Vector2(7, -442)
+ingredient_name = "sage"
+ingredient_id = "sage1"
+
+[node name="Rosemary" parent="." instance=ExtResource("7_j24p3")]
+position = Vector2(-588, 71)
+ingredient_name = "rosemary"
+ingredient_id = "rosemary1"
+
+[node name="Hyacinth" parent="." instance=ExtResource("8_mdbw0")]
+position = Vector2(535, -171)
+ingredient_name = "hyacinth"
+ingredient_id = "hyacinth1"
+
 [node name="merchant" parent="." instance=ExtResource("4_dgnbm")]
-position = Vector2(-194, 487)
-scale = Vector2(5, 3.055)
+position = Vector2(-51, 622)
+scale = Vector2(0.3, 0.3)
 
 [node name="Enemy" parent="." instance=ExtResource("5_u54jj")]
 visible = false
@@ -142,6 +160,7 @@ limit_right = 700
 limit_bottom = 770
 
 [node name="gameManager" parent="." instance=ExtResource("1_yl8nb")]
+position = Vector2(324, 29)
 
 [node name="Area2D" parent="." instance=ExtResource("5_5q3dm")]
 visible = false
@@ -178,7 +197,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "You Died"
+text = "The Gnome got you!"
 label_settings = SubResource("LabelSettings_lbbu4")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5klxwd6l17b1"]
+
+[ext_resource type="PackedScene" uid="uid://c5wf2v7uasar5" path="res://scenes/Ingredients.tscn" id="1_pxt2n"]
+[ext_resource type="Texture2D" uid="uid://cj3fkli1htva" path="res://assets/hyacinth.png" id="2_xbkj3"]
+[ext_resource type="AudioStream" uid="uid://bi7ie3qrhfv2b" path="res://assets/harp.mp3" id="3_2lu5u"]
+
+[node name="Hyacinth" instance=ExtResource("1_pxt2n")]
+scale = Vector2(0.1, 0.1)
+ingredient_name = "basil"
+ingredient_id = "basil1"
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_xbkj3")
+
+[node name="Music" parent="." index="3"]
+stream = ExtResource("3_2lu5u")

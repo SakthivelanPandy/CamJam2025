@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c66o0nus3bw44"]
+
+[ext_resource type="VideoStream" path="res://assets/final.ogv" id="1_tqcak"]
+
+[node name="CS6" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -992.0
+offset_top = -504.0
+offset_right = 928.0
+offset_bottom = 584.0
+stream = ExtResource("1_tqcak")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="VideoStreamPlayer"]
+position = Vector2(992, 528)
+zoom = Vector2(0.9, 0.65)
+
+[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]

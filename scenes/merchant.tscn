@@ -1,25 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://cooyd5aavaxev"]
+[gd_scene load_steps=9 format=3 uid="uid://cooyd5aavaxev"]
 
+[ext_resource type="Texture2D" uid="uid://m1uyfhc43fcj" path="res://assets/merchant.png" id="1_m6xyg"]
 [ext_resource type="Script" path="res://scripts/merchant.gd" id="1_nu47j"]
-[ext_resource type="Texture2D" uid="uid://oentvjdheu4v" path="res://assets/images.jpeg" id="3_0c5df"]
+[ext_resource type="Texture2D" uid="uid://bb3iqs4hhqwrr" path="res://assets/backround.jpg" id="3_vk13x"]
 [ext_resource type="Script" path="res://scripts/panel.gd" id="4_ssgdq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgvgc"]
+atlas = ExtResource("1_m6xyg")
+region = Rect2(0, 0, 2048, 2048)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yx747"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_0c5df")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_0c5df")
+"texture": SubResource("AtlasTexture_hgvgc")
 }],
 "loop": true,
-"name": &"default",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kw36"]
-size = Vector2(68.7467, 69.1959)
+size = Vector2(440.302, 521.617)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ocdoj"]
+texture = ExtResource("3_vk13x")
 
 [node name="merchant" type="Node2D"]
 position = Vector2(1029, -36)
@@ -28,14 +33,13 @@ scale = Vector2(17.9354, 10.9544)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_yx747")
-autoplay = "default"
-frame_progress = 0.770831
+animation = &"new_animation"
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("1_nu47j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.139389, -0.639013)
+position = Vector2(4.59986, -27.4776)
 shape = SubResource("RectangleShape2D_2kw36")
 
 [node name="Control" type="Control" parent="."]
@@ -46,35 +50,45 @@ offset_bottom = 40.0
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -1570.0
+offset_top = -1145.0
+offset_right = -714.0
+offset_bottom = -620.0
 scale = Vector2(1.63339, 1.74856)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ocdoj")
 script = ExtResource("4_ssgdq")
 
 [node name="Label" type="Label" parent="Control/Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-scale = Vector2(0.119904, 0.262684)
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 4978.0
+offset_bottom = 1007.0
+scale = Vector2(0.17, 0.263)
+theme_override_font_sizes/font_size = 870
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Control/Panel"]
 layout_mode = 0
-offset_left = 2.93562
-offset_top = 22.2926
-offset_right = 36.9356
-offset_bottom = 53.2926
+offset_left = 47.2284
+offset_top = 346.906
+offset_right = 582.228
+offset_bottom = 763.906
 scale = Vector2(0.191794, 0.257477)
-text = "yes"
+theme_override_font_sizes/font_size = 300
+text = "Yes"
 
 [node name="Button2" type="Button" parent="Control/Panel"]
 layout_mode = 0
-offset_left = 12.391
-offset_top = 22.6058
-offset_right = 40.391
-offset_bottom = 53.6058
+offset_left = 677.666
+offset_top = 362.203
+offset_right = 1059.67
+offset_bottom = 779.203
 scale = Vector2(0.220988, 0.212844)
-text = "no
+theme_override_font_sizes/font_size = 300
+text = "No
 "
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

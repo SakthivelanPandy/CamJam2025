@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://wm31m20fa6yc"]
+[gd_scene load_steps=12 format=3 uid="uid://wm31m20fa6yc"]
 
 [ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/flip_square_puzzle.gd" id="1_ltx0g"]
 [ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_1.gd" id="2_edqtd"]
+[ext_resource type="Texture2D" uid="uid://bb3iqs4hhqwrr" path="res://assets/backround.jpg" id="2_ngphi"]
 [ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_2.gd" id="3_hed7t"]
 [ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_3.gd" id="4_necdo"]
 [ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_4.gd" id="5_5o27v"]
@@ -20,96 +21,129 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ltx0g")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584, 328)
+scale = Vector2(0.563041, 0.428236)
+texture = ExtResource("2_ngphi")
+
 [node name="Button1" type="Button" parent="."]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 64.0
-offset_right = 210.0
-offset_bottom = 95.0
-scale = Vector2(1.49728, 1.07798)
+offset_left = 352.0
+offset_top = 128.0
+offset_right = 464.0
+offset_bottom = 232.0
+scale = Vector2(1.00284, 1.08169)
+theme_override_font_sizes/font_size = 50
+expand_icon = true
 script = ExtResource("2_edqtd")
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 320.0
-offset_top = 64.0
-offset_right = 328.0
-offset_bottom = 72.0
+layout_mode = 0
+offset_left = 488.0
+offset_top = 128.0
+offset_right = 600.0
+offset_bottom = 232.0
 scale = Vector2(1.00284, 1.08169)
+theme_override_font_sizes/font_size = 50
+expand_icon = true
 script = ExtResource("3_hed7t")
 
 [node name="Button3" type="Button" parent="."]
-offset_left = 448.0
-offset_top = 64.0
-offset_right = 456.0
-offset_bottom = 72.0
+layout_mode = 0
+offset_left = 624.0
+offset_top = 128.0
+offset_right = 736.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 50
+expand_icon = true
 script = ExtResource("4_necdo")
 
 [node name="Button4" type="Button" parent="."]
-offset_left = 192.0
-offset_top = 192.0
-offset_right = 200.0
-offset_bottom = 200.0
+layout_mode = 0
+offset_left = 352.0
+offset_top = 264.0
+offset_right = 464.0
+offset_bottom = 376.0
+theme_override_font_sizes/font_size = 50
+expand_icon = true
 script = ExtResource("5_5o27v")
 
 [node name="Button5" type="Button" parent="."]
-offset_left = 320.0
-offset_top = 192.0
-offset_right = 328.0
-offset_bottom = 200.0
+layout_mode = 0
+offset_left = 488.0
+offset_top = 264.0
+offset_right = 600.0
+offset_bottom = 376.0
+theme_override_font_sizes/font_size = 50
+expand_icon = true
 script = ExtResource("6_0w7f7")
 
 [node name="Button6" type="Button" parent="."]
-offset_left = 448.0
-offset_top = 192.0
-offset_right = 456.0
-offset_bottom = 200.0
+layout_mode = 0
+offset_left = 624.0
+offset_top = 264.0
+offset_right = 736.0
+offset_bottom = 376.0
+theme_override_font_sizes/font_size = 50
+expand_icon = true
 script = ExtResource("7_m4im4")
 
 [node name="Button7" type="Button" parent="."]
-offset_left = 192.0
-offset_top = 320.0
-offset_right = 200.0
-offset_bottom = 328.0
+layout_mode = 0
+offset_left = 352.0
+offset_top = 400.0
+offset_right = 464.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 50
+expand_icon = true
 script = ExtResource("8_3sbfg")
 
 [node name="Button8" type="Button" parent="."]
-offset_left = 320.0
-offset_top = 320.0
-offset_right = 328.0
-offset_bottom = 328.0
+layout_mode = 0
+offset_left = 488.0
+offset_top = 400.0
+offset_right = 600.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 50
+expand_icon = true
 script = ExtResource("9_pl7tc")
 
 [node name="Button9" type="Button" parent="."]
-offset_left = 448.0
-offset_top = 320.0
-offset_right = 456.0
-offset_bottom = 328.0
+layout_mode = 0
+offset_left = 624.0
+offset_top = 400.0
+offset_right = 736.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 50
+expand_icon = true
 script = ExtResource("10_bybb8")
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
-offset_left = 528.0
-offset_top = 72.0
-offset_right = 573.0
-offset_bottom = 103.0
-scale = Vector2(2.17233, 2.29461)
+offset_left = 896.0
+offset_top = 520.0
+offset_right = 941.0
+offset_bottom = 551.0
+scale = Vector2(1.81493, 1.86002)
 text = "Next"
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 88.0
-offset_right = 61.0
-offset_bottom = 119.0
+offset_left = 112.0
+offset_top = 520.0
+offset_right = 157.0
+offset_bottom = 551.0
 scale = Vector2(1.87498, 1.86273)
 text = "Back"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-scale = Vector2(1.953, 2.29953)
-text = "Get all heads to unlock the door"
+offset_left = 336.0
+offset_top = 48.0
+offset_right = 732.0
+offset_bottom = 71.0
+scale = Vector2(1.14404, 2.24424)
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

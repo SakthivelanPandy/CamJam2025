@@ -10,7 +10,7 @@ signal start_dialogue()
 func _on_body_entered(body: Node2D) -> void:
 	print("hit the merchant")
 	if not is_resting:
-		dialogue_ui.show_dialogue("Trade basic stuff for composit ingredients", yes, no)
+		dialogue_ui.show_dialogue("Trade Ingredients?", yes, no)
 	else:
 		dialogue_ui.show_dialogue("I'm tired...I really need a sleep...come later")
 	
@@ -47,3 +47,7 @@ func no():
 		
 		
 		
+
+
+func _on_body_exited(body: Node2D) -> void:
+	dialogue_ui.close_dialogue()

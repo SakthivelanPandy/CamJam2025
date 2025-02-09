@@ -11,6 +11,7 @@ extends Control
 @onready var b9 = $Button9
 @onready var next = $Next
 @onready var back = $Back
+@onready var label = $Label
 
 var puzzles = [[b2,b5,b8],[b4,b5,b6],[b2,b3,b4,b6,b7,b8]]
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +19,7 @@ func _ready() -> void:
 	generate_puzzle()
 	next.visible = false
 	back.visible = true
+	label.text = "Have a BIG smile"
 
 func all_head():
 	return b1.facing and b2.facing and b3.facing and b4.facing and b5.facing and b6.facing and b7.facing and b8.facing and b9.facing
@@ -104,6 +106,16 @@ func _on_button_9_pressed() -> void:
 
 func _process(delta: float) -> void:
 	if all_head():
+		b1.visible = false
+		b2.visible = false
+		b3.visible = false
+		b4.visible = false
+		b5.visible = false
+		b6.visible = false
+		b7.visible = false
+		b8.visible = false
+		b9.visible = false
+		label.text = "Passed!"
 		next.visible = true
 
 

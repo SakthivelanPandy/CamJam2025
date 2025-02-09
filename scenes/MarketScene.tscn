@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dghw0f330lu83"]
 
 [ext_resource type="Script" path="res://scripts/market_scene.gd" id="1_rht5p"]
-[ext_resource type="Texture2D" uid="uid://2g8wvio46xvc" path="res://assets/house.jpg" id="2_hlfy7"]
+[ext_resource type="Texture2D" uid="uid://bb3iqs4hhqwrr" path="res://assets/backround.jpg" id="2_hlfy7"]
 [ext_resource type="Script" path="res://scripts/instructions_label.gd" id="3_qm0g0"]
 [ext_resource type="Script" path="res://scripts/time_label.gd" id="4_8prck"]
 
@@ -58,54 +58,56 @@ script = ExtResource("3_qm0g0")
 
 [node name="Button1" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 1.59722
-offset_top = 15.4177
-offset_right = 411.597
-offset_bottom = 248.417
+offset_left = 3.0
+offset_top = 12.0
+offset_right = 342.0
+offset_bottom = 192.0
 scale = Vector2(0.0184316, 0.0323374)
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 80
 text = "2 apples for 3 bananas"
 alignment = 0
 
 [node name="Button2" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 2.01389
-offset_top = 22.543
-offset_right = 412.014
-offset_bottom = 255.543
+offset_left = 3.0
+offset_top = 20.0
+offset_right = 342.0
+offset_bottom = 215.0
 scale = Vector2(0.0184316, 0.0323374)
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 80
 text = "2 apples for 3 bananas"
 alignment = 0
 
 [node name="Button3" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 1.94444
-offset_top = 31.0197
-offset_right = 411.944
-offset_bottom = 264.019
+offset_left = 3.0
+offset_top = 28.0
+offset_right = 346.0
+offset_bottom = 215.0
 scale = Vector2(0.0184316, 0.0323374)
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 80
 text = "2 apples for 3 bananas"
 alignment = 0
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 1.90972
-offset_top = 5.03685
-offset_right = 70.9097
-offset_bottom = 36.0369
+offset_left = 1.97917
+offset_top = 3.33358
+offset_right = 70.9791
+offset_bottom = 34.3336
 scale = Vector2(0.0930637, 0.16659)
-text = "confirm"
+theme_override_font_sizes/font_size = 20
+text = "Confirm"
 
 [node name="quit_button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 8.88889
-offset_top = 4.79115
-offset_right = 55.8889
-offset_bottom = 35.7912
+offset_left = 9.72222
+offset_top = 3.09113
+offset_right = 56.7222
+offset_bottom = 36.0911
 scale = Vector2(0.120869, 0.172418)
-text = "quit"
+theme_override_font_sizes/font_size = 20
+text = "Quit"
 
 [node name="time_label" type="Label" parent="Panel"]
 z_index = 5

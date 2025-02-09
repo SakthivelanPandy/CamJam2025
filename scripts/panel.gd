@@ -6,7 +6,8 @@ extends Control
 
 func _ready():
 	self.visible = false  # Hide initially
-
+func close_dialogue():
+	self.visible = false
 func show_dialogue(text: String, yes_callback: Callable, no_callback: Callable):
 	self.visible = true  # Show the dialogue window
 	dialogue_label.text = text  # Set the text in the dialogue

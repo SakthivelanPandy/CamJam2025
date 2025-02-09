@@ -57,10 +57,11 @@ func assign_task() -> void:
 	
 	
 var tasks = [
-		["bird"],
-		["basil"],
-		["orange"],
-		["rose"],
+		["bird","rosemary","hyacinth"],
+		["basil","bird","amber"],
+		["orange","orange","basil","sage"],
+		["rose","rose","rose","rose","sage","sage","rosemary"],
+		["rose","basil","orange","bird","bird","sage","hyacinth"],
 		["Thats all folks"]
 	]
 
@@ -70,7 +71,7 @@ func _ready() -> void:
 
 
 var all_ingredient = ["apple", "banana", "orange","styrene","methyl pyruvate","vanilla extract","tobacco essence"]
-var basic_ingredient = ["apple", "banana", "orange"]
+var basic_ingredient = ["basil","rose","bird","orange","sage","rosemary","hyacinth","amber"]
 var composit_ingredient = ["styrene","methyl pyruvate","vanilla extract","tobacco essence"]
 
 var l1 = basic_ingredient.size()
