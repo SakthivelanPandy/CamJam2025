@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://wm31m20fa6yc"]
+
+[ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/flip_square_puzzle.gd" id="1_ltx0g"]
+[ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_1.gd" id="2_edqtd"]
+[ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_2.gd" id="3_hed7t"]
+[ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_3.gd" id="4_necdo"]
+[ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_4.gd" id="5_5o27v"]
+[ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_5.gd" id="6_0w7f7"]
+[ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_6.gd" id="7_m4im4"]
+[ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_7.gd" id="8_3sbfg"]
+[ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_8.gd" id="9_pl7tc"]
+[ext_resource type="Script" path="res://scripts/flipSquarePuzzleScripts/button_9.gd" id="10_bybb8"]
+
+[node name="flipSquarePuzzle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ltx0g")
+
+[node name="Button1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 210.0
+offset_bottom = 95.0
+scale = Vector2(1.49728, 1.07798)
+script = ExtResource("2_edqtd")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 328.0
+offset_bottom = 72.0
+scale = Vector2(1.00284, 1.08169)
+script = ExtResource("3_hed7t")
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 64.0
+offset_right = 456.0
+offset_bottom = 72.0
+script = ExtResource("4_necdo")
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 192.0
+offset_top = 192.0
+offset_right = 200.0
+offset_bottom = 200.0
+script = ExtResource("5_5o27v")
+
+[node name="Button5" type="Button" parent="."]
+offset_left = 320.0
+offset_top = 192.0
+offset_right = 328.0
+offset_bottom = 200.0
+script = ExtResource("6_0w7f7")
+
+[node name="Button6" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 456.0
+offset_bottom = 200.0
+script = ExtResource("7_m4im4")
+
+[node name="Button7" type="Button" parent="."]
+offset_left = 192.0
+offset_top = 320.0
+offset_right = 200.0
+offset_bottom = 328.0
+script = ExtResource("8_3sbfg")
+
+[node name="Button8" type="Button" parent="."]
+offset_left = 320.0
+offset_top = 320.0
+offset_right = 328.0
+offset_bottom = 328.0
+script = ExtResource("9_pl7tc")
+
+[node name="Button9" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 320.0
+offset_right = 456.0
+offset_bottom = 328.0
+script = ExtResource("10_bybb8")
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 72.0
+offset_right = 573.0
+offset_bottom = 103.0
+scale = Vector2(2.17233, 2.29461)
+text = "Next"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 88.0
+offset_right = 61.0
+offset_bottom = 119.0
+scale = Vector2(1.87498, 1.86273)
+text = "Back"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(1.953, 2.29953)
+text = "Get all heads to unlock the door"
+
+[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
