@@ -15,12 +15,13 @@ var selected_offer = null
 var offer1 = {}
 var offer2 = {}
 var offer3 = {}
+var current_button = null
 
 func _ready():
-	generate_random_offers()
+	get_offers()
 
-func generate_random_offers():
-	offers = Global.generate_deals()
+func get_offers():
+	offers = Global.deals
 	offer1 = offers[0]
 	offer2 = offers[1]
 	offer3 = offers[2]
@@ -46,6 +47,8 @@ func _on_trade_button_pressed():
 		process_trade(selected_offer)
 		instructions_label.text = "Trade completed!"
 		trade_button.visible = false
+		current_button.visible = false
+		current_button = null
 
 
 
@@ -64,12 +67,15 @@ func process_trade(offer):
 		print(ingredient,offer["reward"][ingredient])
 
 func _on_button_1_pressed() -> void:
+	current_button = Button1
 	selected_offer = offer1
 	_on_offer_accepted(offer1)
 func _on_button_2_pressed() -> void:
+	current_button = Button2
 	selected_offer = offer2
 	_on_offer_accepted(offer2)
 func _on_button_3_pressed() -> void:
+	current_button = Button3
 	selected_offer = offer3
 	_on_offer_accepted(offer3)
 

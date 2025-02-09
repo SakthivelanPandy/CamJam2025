@@ -6,6 +6,9 @@ var inventory = {}
 var to_collect = {}
 var current_task = 1
 var collected_ingredients = []
+const MARKET_TIME = 30
+var deals = []
+var rest_market_time = MARKET_TIME
 
 func check_ingredients_ready():
 	var ready = true
@@ -57,20 +60,24 @@ var tasks = [
 
 func _ready() -> void:
 	assign_task()
+	deals = generate_deals()
 
 
-var all_ingredient = ["apple", "banana", "orange"]
+var all_ingredient = ["apple", "banana", "orange","styrene","methyl pyruvate","vanilla extract","tobacco essence"]
+var basic_ingredient = ["apple", "banana", "orange"]
+var composit_ingredient = ["styrene","methyl pyruvate","vanilla extract","tobacco essence"]
 
-var l = all_ingredient.size()
+var l1 = basic_ingredient.size()
+var l2 = composit_ingredient.size()
 const NUM_DEALS = 3
 
 func pop_deal():
 	var num_pay = int(randfn(6, 2))
-	var num_get = int(randfn(4, 1))
-	var index_1 = randi() % l
-	var index_2 = randi() % l
-	var pay_good = all_ingredient[index_1]
-	var get_good = all_ingredient[index_2]
+	var num_get = int(randfn(3, 1))
+	var index_1 = randi() % l1
+	var index_2 = randi() % l2
+	var pay_good = basic_ingredient[index_1]
+	var get_good = composit_ingredient[index_2]
 	var deal = {
 		"offer_text": str(num_pay)+" "+pay_good+" for "+str(num_get)+" "+get_good, 
 		"cost": {pay_good : num_pay},
@@ -78,8 +85,18 @@ func pop_deal():
 	}
 	return deal
 
+func _process(delta):
+	if rest_market_time > 0:
+		rest_market_time -= delta
+	else:
+		print("refresh market")
+		deals = generate_deals()
+		rest_market_time = MARKET_TIME
+
 func generate_deals():
 	var deals = []
 	for i in range(NUM_DEALS):
 		deals.append(pop_deal())
 	return deals
+
+	
